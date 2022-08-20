@@ -17,17 +17,20 @@ class MusicPostContent extends StatelessWidget {
                 text: const TextSpan(
                   style: TextStyle(color: Colors.black),
                   children: [
-                    TextSpan(text: "Listening to song's name by "),
                     TextSpan(
-                      text: "Artist's name",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      text: "Listening to Glimpse of Us by ",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    TextSpan(
+                      text: "Joji",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 5),
               const Text(
-                "Album name",
+                "Glimpse of Us",
                 style: TextStyle(color: Colors.grey, fontSize: 10),
               ),
               const Text(
