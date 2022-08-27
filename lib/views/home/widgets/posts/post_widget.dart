@@ -8,12 +8,14 @@ import 'music_content.dart';
 import 'post_interaction_row.dart';
 
 class Post extends StatelessWidget {
-  const Post({Key? key}) : super(key: key);
+  const Post({Key? key, this.likesScreen = false}) : super(key: key);
+
+  final bool likesScreen;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150.sp,
+      height: likesScreen ? 55.sp : 150.sp,
       width: 100.w,
       decoration: const BoxDecoration(
         color: Color.fromRGBO(242, 223, 226, 1),
@@ -40,15 +42,24 @@ class Post extends StatelessWidget {
                     vertical: 5.sp,
                   ),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      MusicPostContent(), // add a conditional on types of content (text + image, location contents)
-                      PostInteractionRow(),
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const MusicPostContent(), // add a conditional on types of content (text + image, location contents)
+                      Visibility(
+                        visible: !likesScreen,
+                        child: const PostInteractionRow(),
+                      ),
                     ],
                   ),
                 ),
-                const LikesSection(),
-                const CommentSection(),
+                Visibility(
+                  visible: !likesScreen,
+                  child: const LikesSection(),
+                ),
+                Visibility(
+                  visible: !likesScreen,
+                  child: const CommentSection(),
+                ),
               ],
             ),
           ),

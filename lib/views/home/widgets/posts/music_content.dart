@@ -23,7 +23,8 @@ class MusicPostContent extends StatelessWidget {
                     ),
                     TextSpan(
                       text: "Joji",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                     ),
                   ],
                 ),
@@ -47,9 +48,7 @@ class MusicPostContent extends StatelessWidget {
             child: Image(
               width: 35.sp,
               fit: BoxFit.cover,
-              image: const NetworkImage(
-                "https://e-cdns-images.dzcdn.net/images/cover/1e1146f11ba53e8e0f8e456c722d94ae/500x500-000000-80-0-0.jpg",
-              ),
+              image: const AssetImage("assets/images/repath.png"),
             ),
           ),
         ),

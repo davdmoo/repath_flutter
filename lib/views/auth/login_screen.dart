@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       debugPrint("Login - ${emailController.text} + ${passwordController.text}");
 
-      Navigator.of(context).pushNamed("home");
+      Navigator.of(context).pushNamed("/home");
     } catch (e) {
       return Future.error(e);
     }

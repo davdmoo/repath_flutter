@@ -1,15 +1,22 @@
 import "package:flutter/material.dart";
 import 'package:sizer/sizer.dart';
 
+import '../../../helpers/navigation.dart';
+import '../../friend_requests/friend_requests_screen.dart';
+import '../../friends/friends_screen.dart';
+import '../../likes/likes_screen.dart';
+import '../../profile/profile_screen.dart';
+import '../../search/search_screen.dart';
+
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.red,
+      backgroundColor: Theme.of(context).primaryColor,
       child: ListView(
-        padding: EdgeInsets.zero,
+        padding: EdgeInsets.only(left: 10.sp),
         children: [
           DrawerHeader(
             padding: EdgeInsets.zero,
@@ -35,18 +42,51 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: const Text('Item 1'),
+            title: const Text('Home'),
             onTap: () {
-              // Update the state of the app.
-              // ...
+              Navigator.of(context).pushNamed("/home");
             },
+            leading: const Icon(Icons.home),
           ),
           ListTile(
-            title: const Text('Item 2'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
+            title: const Text('Profile'),
+            onTap: () => navigateNoAnimation(
+              context,
+              const ProfileScreen(),
+            ),
+            leading: const Icon(Icons.person),
+          ),
+          ListTile(
+            title: const Text('Liked Posts'),
+            onTap: () => navigateNoAnimation(
+              context,
+              const LikesScreen(),
+            ),
+            leading: const Icon(Icons.volunteer_activism_rounded),
+          ),
+          ListTile(
+            title: const Text('Friends'),
+            onTap: () => navigateNoAnimation(
+              context,
+              const FriendsScreen(),
+            ),
+            leading: const Icon(Icons.favorite_rounded),
+          ),
+          ListTile(
+            title: const Text('Friend Requests'),
+            onTap: () => navigateNoAnimation(
+              context,
+              const FriendRequestsScreen(),
+            ),
+            leading: const Icon(Icons.person_pin_rounded),
+          ),
+          ListTile(
+            title: const Text('Search'),
+            onTap: () => navigateNoAnimation(
+              context,
+              const SearchScreen(),
+            ),
+            leading: const Icon(Icons.person_search),
           ),
         ],
       ),

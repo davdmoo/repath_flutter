@@ -12,6 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Theme.of(context).primaryColor,
       automaticallyImplyLeading: false,
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,7 +24,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           Image(
-            image: const AssetImage("assets/images/dash.png"),
+            image: const AssetImage("assets/images/repath.png"),
             height: 75.sp,
             width: 75.sp,
           ),
