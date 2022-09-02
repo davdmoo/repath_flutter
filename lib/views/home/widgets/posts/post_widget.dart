@@ -4,13 +4,20 @@ import "package:sizer/sizer.dart";
 import 'comment_section.dart';
 import 'left_section.dart';
 import 'likes_section.dart';
+import 'location_content.dart';
 import 'music_content.dart';
 import 'post_interaction_row.dart';
+import 'text_content.dart';
 
 class Post extends StatelessWidget {
-  const Post({Key? key, this.likesScreen = false}) : super(key: key);
+  const Post({
+    Key? key,
+    this.likesScreen = false,
+    this.postType = "text",
+  }) : super(key: key);
 
   final bool likesScreen;
+  final String postType;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,11 @@ class Post extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const MusicPostContent(), // add a conditional on types of content (text + image, location contents)
+                      postType == "music"
+                        ? const MusicPostContent()
+                        : postType == "text"
+                          ? const TextPostContent()
+                          : const LocationPostContent(),
                       Visibility(
                         visible: !likesScreen,
                         child: const PostInteractionRow(),

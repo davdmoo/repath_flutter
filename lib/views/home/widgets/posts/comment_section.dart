@@ -25,7 +25,7 @@ class _CommentSectionState extends State<CommentSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56.sp,
+      height: 55.sp,
       width: 75.w,
       padding: EdgeInsets.all(5.sp),
       margin: EdgeInsets.all(3.sp),
@@ -34,10 +34,12 @@ class _CommentSectionState extends State<CommentSection> {
         borderRadius: BorderRadius.circular(5),
       ),
       child: ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: comments.length,
         itemBuilder: (listContext, i) => Container(
-          margin: const EdgeInsets.only(bottom: 3),
-          height: 22.sp,
+          alignment: Alignment.center,
+          margin: const EdgeInsets.only(bottom: 5),
+          height: 20.sp,
           child: Row(
             children: [
               ClipRRect(
