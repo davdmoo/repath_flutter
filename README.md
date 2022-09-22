@@ -1,2 +1,2 @@
 # repath_flutter
-A revamp on repath using Flutter
+Recreating my coding bootcamp team's final project [rePath!](https://repath-210d5.web.app/) using Flutter.
